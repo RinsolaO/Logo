@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header'
+import Mainscreen from './screens/Mainscreen'
+import Menu from './components/Menu'
+import Activity from './screens/Activity';
+import Wallet from './screens/Wallet';
+import Market from './screens/Market';
+import Earn from './screens/Earn';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Header />
+    <div className="container">
+    <Router> 
+    <Switch>
+      <Route exact path = "/">
+        <Mainscreen />
+      </Route>
+      <Route exact path = "/Activity">
+        <Activity />
+      </Route>
+      <Route exact path = "/Wallet">
+        <Wallet />
+      </Route>
+      <Route exact path = "/Market">
+        <Market />
+      </Route>
+      <Route exact path = "/Earn">
+        <Earn />
+      </Route>
+    </Switch>
+    <Menu />
+  </Router>
+    </div>
+      
     </div>
   );
 }
